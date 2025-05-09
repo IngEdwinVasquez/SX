@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="point_of_sale_custom.CustomerData">
+        <div class="pb-1">
+            <div class="d-flex">
+                <span class="fw-bolder">Comprador</span>
+                <span t-esc="this.customerName" class="ms-auto"/>
+            </div>
+            <div class="d-flex">
+                <span class="fw-bolder">RNC Comprador</span>
+                <span t-esc="this.customerVat" class="ms-auto"/>
+            </div>
+        </div>
+    </t>
+</templates>

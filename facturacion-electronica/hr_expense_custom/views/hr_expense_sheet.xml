@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="hr_expense_sheet_inherit_view_form">
+      <field name="name">hr_expense_sheet_inherit_view_form</field>
+      <field name="model">hr.expense.sheet</field>
+      <field name="inherit_id" ref="hr_expense.view_hr_expense_sheet_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//button[@name='action_register_payment']" position="after">
+            <button name="api_request" type="object" string="Enviar DGII" invisible="state not in ('approve','post') or expense_ecf_type not in ('43', '47') or expense_e_ncf"/>
+        </xpath>
+        <xpath expr="//field[@name='department_id']" position="after">
+            <field name="expense_e_ncf" readonly="expense_ecf_type not in ('0')"/>
+            <field name="expense_security_code" readonly="1" invisible="expense_ecf_type != '43' and expense_ecf_type != '47'"/>
+            <field name="expense_digital_signature_date" readonly="1" invisible="expense_ecf_type != '43' and expense_ecf_type != '47'"/>
+            <field name="expense_fiscal_qr" readonly="1" invisible="expense_ecf_type != '43' and expense_ecf_type != '47'" widget="image" options="{'size': [200, 200]}"/>
+        </xpath>
+        <xpath expr="//field[@name='accounting_date']" position="after">
+            <field name="expense_ecf_type" readonly="state == 'done' or expense_security_code"/>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

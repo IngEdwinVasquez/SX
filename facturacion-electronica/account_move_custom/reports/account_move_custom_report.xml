@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <template id="inherit_account_move_report" inherit_id="account.report_invoice_document">
+      <xpath expr="//div[@id='payment_term']" position="inside">
+        <div t-if="o.move_type == 'out_refund'">
+          <p>E-NCF Modificado:
+              <span t-field="o.out_invoice_e_ncf" class="fw-bold"/>
+          </p>
+        </div>
+        <div>
+          <p>E-NCF:
+              <span t-if="o.move_type == 'out_invoice'" t-field="o.out_invoice_e_ncf" class="fw-bold"/>
+              <span t-if="o.move_type == 'out_refund'" t-field="o.out_refund_e_ncf" class="fw-bold"/>
+          </p>
+        </div>
+        <div>
+          <p>Código de Seguridad:
+              <span t-if="o.move_type == 'out_invoice'" t-field="o.out_invoice_security_code" class="fw-bold"/>
+              <span t-if="o.move_type == 'out_refund'" t-field="o.out_refund_security_code" class="fw-bold"/>
+          </p>
+        </div>
+        <div>
+          <p>Fecha de la firma digital:
+              <span t-if="o.move_type == 'out_invoice'" t-field="o.out_invoice_digital_signature_date" class="fw-bold"/>
+              <span t-if="o.move_type == 'out_refund'" t-field="o.out_refund_digital_signature_date" class="fw-bold"/>
+          </p>
+        </div>
+        <div>
+          <span style="display: block">QR Fiscal: </span>
+          <img t-if="o.move_type == 'out_invoice' and o.out_invoice_fiscal_qr" t-att-src="'data:image/png;base64,' + o.out_invoice_fiscal_qr.decode('utf-8')" alt="QR Code" style="width:150px;height:150px;"/>
+          <img t-if="o.move_type == 'out_refund'" t-att-src="'data:image/png;base64,' + o.out_refund_qr.decode('utf-8')" alt="QR Code" style="width:150px;height:150px;"/>
+        </div>
+      </xpath>
+    </template>
+  </data>
+</odoo>

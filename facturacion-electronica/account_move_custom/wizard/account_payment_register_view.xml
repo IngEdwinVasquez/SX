@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+          <!--  <record id="view_account_payment_register_inherit" model="ir.ui.view">
+         <field name="name">view_account_payment_register_inherit</field>
+            <field name="model">account.payment.register</field>
+            <field name="inherit_id" ref="account.view_account_payment_register_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='group1']" position="inside">
+                    <field name="payment_expense_ecf_type" invisible="'INV' in communication or 'BILL' in communication"/>
+                </xpath>
+                <xpath expr="//group[@name='group2']" position="inside">
+                    <field name="payment_expense_e_ncf" invisible="payment_expense_ecf_type not in ('0') or 'INV' in communication or 'BILL' in communication"/>
+                    <field name="payment_expense_retention_perception_indicator" invisible="payment_expense_ecf_type not in ('47') or 'INV' in communication or 'BILL' in communication"/>
+                </xpath>
+            </field>  
+        </record>-->
+    </data>
+</odoo>
+

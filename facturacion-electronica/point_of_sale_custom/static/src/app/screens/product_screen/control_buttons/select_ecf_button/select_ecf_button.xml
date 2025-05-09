@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="point_of_sale_custom.SelectEcfButton">
+        <Dropdown>
+            <button class="button btn btn-light btn-lg w-100 w-md-100 lh-lg text-truncate">
+                <span t-esc="selectedItem.ecfName ? selectedItem.ecfName : 'Tipo ECF'">Tipo ECF</span>
+            </button>
+            <t t-set-slot="content">
+                <DropdownItem t-foreach="items" t-as="item" t-key="item.value" onSelected="() => onItemSelected(item)">
+                    <t t-esc="item.ecfName"/>
+                </DropdownItem>
+            </t>
+        </Dropdown>
+    </t>
+</templates>

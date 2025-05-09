@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="account_move_custom_view_form">
+      <field name="name">account_move_custom_view_form</field>
+      <field name="model">account.move</field>
+      <field name="inherit_id" ref="account.view_move_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//group" position="inside">
+          <group invisible="move_type not in ('out_invoice')">
+            <field name="out_invoice_e_ncf" readonly="1"/>
+            <field name="out_invoice_security_code" readonly="1"/>
+            <field name="out_invoice_digital_signature_date" readonly="1"/>
+            <field name="out_invoice_fiscal_qr" readonly="1" widget="image" options="{'size': [200, 200]}"/>
+          </group>
+          <group invisible="move_type not in ('out_refund')">
+            <field name="out_invoice_e_ncf" readonly="1" string="E-NCF Modificado"/>
+            <field name="out_refund_e_ncf" readonly="1"/>
+            <field name="out_refund_security_code" readonly="1"/>
+            <field name="out_refund_digital_signature_date" readonly="1"/>
+            <field name="out_refund_qr" readonly="1" widget="image" options="{'size': [200, 200]}"/>
+          </group>
+          <group invisible="move_type not in ('in_invoice')">
+            <field name="expense_e_ncf" readonly="1" invisible="expense_e_ncf == False"/>
+            <field name="expense_security_code" readonly="1" invisible="expense_ecf_type != '43' and expense_ecf_type != '47'"/>
+            <field name="expense_digital_signature_date" readonly="1" invisible="expense_ecf_type != '43' and expense_ecf_type != '47'"/>
+            <field name="expense_fiscal_qr" readonly="1" invisible="expense_ecf_type != '43' and expense_ecf_type != '47'" widget="image" options="{'size': [200, 200]}"/>
+            <field name="purchase_order_e_ncf" readonly="state != 'draft' or purchase_order_ecf_type not in ('0')" invisible="purchase_order_count == 0"/>
+            <field name="purchase_order_security_code" readonly="1" invisible="purchase_order_ecf_type != '41'"/>
+            <field name="purchase_order_digital_signature_date" invisible="purchase_order_ecf_type != '41'"/>
+            <field name="purchase_order_fiscal_qr" readonly="1" invisible="purchase_order_ecf_type != '41'" widget="image" options="{'size': [200, 200]}"/>
+          </group>
+        </xpath>
+        <xpath expr="//group[1]" position="inside">
+          <group invisible="move_type not in ('out_invoice')">
+            <field name="out_invoice_ecf_type" readonly="state != 'draft'"/>
+            <field name="out_invoice_income_type" readonly="state != 'draft'"/>
+            <field name="out_invoice_payment_type" readonly="state != 'draft'"/>
+          </group>
+          <group invisible="move_type not in ('out_refund')">
+            <field name="out_refund_modification_code" readonly="state != 'draft'"/>
+          </group>
+          <group invisible="move_type not in ('in_invoice')">
+            <field name="expense_ecf_type" readonly="1" invisible="expense_e_ncf == False"/>
+            <field name="expense_retention_perception_indicator" readonly="1" invisible="expense_ecf_type not in ('47')"/>
+            <field name="purchase_order_ecf_type" readonly="state != 'draft'" invisible="purchase_order_count == 0"/>
+            <field name="purchase_order_retention_perception_indicator" readonly="state != 'draft'" invisible="purchase_order_count == 0 or purchase_order_ecf_type not in ('41')"/>
+            <field name="purchase_order_payment_type" readonly="state != 'draft'" invisible="purchase_order_count == 0 or purchase_order_ecf_type not in ('41')"/>
+          </group>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

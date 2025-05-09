@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="point_of_sale_custom.ReceiptExtras">
+        <div class="pt-4">
+            <div class="d-flex">
+                <span class="fw-bolder">E-NCF</span>
+                <span t-esc="this.posENcf" class="ms-auto"/>
+            </div>
+            <div class="d-flex">
+                <span class="fw-bolder">Código de Seguridad</span>
+                <span t-esc="this.posSecurityCode" class="ms-auto"/>
+            </div>
+            <div class="d-flex">
+                <span class="fw-bolder">Fecha Firma Digital</span>
+                <span t-esc="this.posDigitalSignatureDate" class="ms-auto"/>
+            </div>
+            <div style="display: flex; flex-direction: column;">
+                <span class="fw-bolder">QR Fiscal</span>
+                <img t-att-src="'data:image/png;base64,' + this.posFiscalQr" alt="Código QR" style="width:150px;height:150px;" />
+            </div>
+        </div>
+    </t>
+</templates>
