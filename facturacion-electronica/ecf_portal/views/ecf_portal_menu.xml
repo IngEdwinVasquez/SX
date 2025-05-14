@@ -1,0 +1,3 @@
+<odoo>
+    <menuitem id="menu_ecf_portal" name="Portal ECF" sequence="10" action="action_ecf_portal"/>
+</odoo>

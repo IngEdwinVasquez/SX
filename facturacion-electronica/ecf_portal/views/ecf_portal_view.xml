@@ -1,0 +1,23 @@
+<odoo>
+    <record id="view_ecf_portal_form" model="ir.ui.view">
+        <field name="name">ecf.portal.form</field>
+        <field name="model">ecf.portal</field>
+        <field name="arch" type="xml">
+            <form string="Portal ECF">
+                <sheet>
+                    <div style="height: 600px;">
+                        <iframe src="https://ecf.qudif.com/?user=130777845&amp;pass=13077784520" width="100%" height="100%" style="border:none;"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_ecf_portal" model="ir.actions.act_window">
+        <field name="name">Portal ECF</field>
+        <field name="res_model">ecf.portal</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_ecf_portal_form"/>
+    </record>
+    
+
+</odoo>
