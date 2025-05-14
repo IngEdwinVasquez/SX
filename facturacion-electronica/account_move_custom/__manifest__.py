@@ -8,7 +8,7 @@
     'installable': True,
     'application': False,
 
-    # always loaded
+  
     'data': [
         'security/ir.model.access.csv',
 
