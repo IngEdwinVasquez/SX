@@ -25,7 +25,7 @@
             <field name="expense_security_code" readonly="1" invisible="expense_ecf_type != '43' and expense_ecf_type != '47'"/>
             <field name="expense_digital_signature_date" readonly="1" invisible="expense_ecf_type != '43' and expense_ecf_type != '47'"/>
             <field name="expense_fiscal_qr" readonly="1" invisible="expense_ecf_type != '43' and expense_ecf_type != '47'" widget="image" options="{'size': [200, 200]}"/>
-            <field name="purchase_order_e_ncf" readonly="state != 'draft' or purchase_order_ecf_type not in ('0')" invisible="purchase_order_count == 0"/>
+            <field name="purchase_order_e_ncf" groups="purchase.group_purchase_user" readonly="state != 'draft' or purchase_order_ecf_type not in ('0')" invisible="purchase_order_count == 0"/>
             <field name="purchase_order_security_code" readonly="1" invisible="purchase_order_ecf_type != '41'"/>
             <field name="purchase_order_digital_signature_date" invisible="purchase_order_ecf_type != '41'"/>
             <field name="purchase_order_fiscal_qr" readonly="1" invisible="purchase_order_ecf_type != '41'" widget="image" options="{'size': [200, 200]}"/>
@@ -43,9 +43,9 @@
           <group invisible="move_type not in ('in_invoice')">
             <field name="expense_ecf_type" readonly="1" invisible="expense_e_ncf == False"/>
             <field name="expense_retention_perception_indicator" readonly="1" invisible="expense_ecf_type not in ('47')"/>
-            <field name="purchase_order_ecf_type" readonly="state != 'draft'" invisible="purchase_order_count == 0"/>
-            <field name="purchase_order_retention_perception_indicator" readonly="state != 'draft'" invisible="purchase_order_count == 0 or purchase_order_ecf_type not in ('41')"/>
-            <field name="purchase_order_payment_type" readonly="state != 'draft'" invisible="purchase_order_count == 0 or purchase_order_ecf_type not in ('41')"/>
+            <field name="purchase_order_ecf_type" groups="purchase.group_purchase_user" readonly="state != 'draft'" invisible="purchase_order_count == 0"/>
+            <field name="purchase_order_retention_perception_indicator" groups="purchase.group_purchase_user" readonly="state != 'draft'" invisible="purchase_order_count == 0 or purchase_order_ecf_type not in ('41')"/>
+            <field name="purchase_order_payment_type" groups="purchase.group_purchase_user" readonly="state != 'draft'" invisible="purchase_order_count == 0 or purchase_order_ecf_type not in ('41')"/>
           </group>
         </xpath>
       </field>
