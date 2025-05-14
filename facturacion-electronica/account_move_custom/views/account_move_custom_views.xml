@@ -26,9 +26,9 @@
             <field name="expense_digital_signature_date" readonly="1" invisible="expense_ecf_type != '43' and expense_ecf_type != '47'"/>
             <field name="expense_fiscal_qr" readonly="1" invisible="expense_ecf_type != '43' and expense_ecf_type != '47'" widget="image" options="{'size': [200, 200]}"/>
             <field name="purchase_order_e_ncf" groups="purchase.group_purchase_user" readonly="state != 'draft' or purchase_order_ecf_type not in ('0')" invisible="purchase_order_count == 0"/>
-            <field name="purchase_order_security_code" readonly="1" invisible="purchase_order_ecf_type != '41'"/>
-            <field name="purchase_order_digital_signature_date" invisible="purchase_order_ecf_type != '41'"/>
-            <field name="purchase_order_fiscal_qr" readonly="1" invisible="purchase_order_ecf_type != '41'" widget="image" options="{'size': [200, 200]}"/>
+            <field name="purchase_order_security_code" groups="purchase.group_purchase_user" readonly="1" invisible="purchase_order_ecf_type != '41'"/>
+            <field name="purchase_order_digital_signature_date" groups="purchase.group_purchase_user" invisible="purchase_order_ecf_type != '41'"/>
+            <field name="purchase_order_fiscal_qr" groups="purchase.group_purchase_user" readonly="1" invisible="purchase_order_ecf_type != '41'" widget="image" options="{'size': [200, 200]}"/>
           </group>
         </xpath>
         <xpath expr="//group[1]" position="inside">
