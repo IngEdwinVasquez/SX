@@ -1,24 +1,13 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Expense Custom",
-
-    'summary': "",
-
-    'description': """
-    """,
-
-    'author': "My Company",
-    'website': "https://www.yourcompany.com",
-
-    # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
-    # for the full list
-    'category': 'Uncategorized',
-    'version': '0.1',
-
-    # any module necessary for this one to work correctly
+    'name': 'Expense Account Custom',
+    'version': '17.0.1.0.0',
+    'license': 'LGPL-3',
     'depends': ['hr_expense'],
-
+    'category': 'Accounting',
+    'summary': 'Personalizaciones para el modelo de facturas',
+    'installable': True,
+    'application': False,
     # always loaded
     'data': [
         'security/ir.model.access.csv',
