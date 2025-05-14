@@ -1,11 +1,11 @@
 {
-     'name': 'Portal ECF',
+    'name': 'Portal ECF',
     'version': '17.0.1.0.0',
     'license': 'LGPL-3',
-     "depends": ["base"],
+    'depends': ['base'],
     'category': 'Accounting',
     'summary': 'Portal ECF integrado mediante iframe',
-    'description': 'Agrega un menú 'Portal ECF' que muestra el portal ECF dentro de Odoo en un iframe.',
+    'description': "Agrega un menú 'Portal ECF' que muestra el portal ECF dentro de Odoo en un iframe.",
     'installable': True,
     'application': False,
     
