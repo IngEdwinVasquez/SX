@@ -2,7 +2,7 @@
     'name': 'Account Move ECF',
     'version': '17.0.1.0.0',
     'license': 'LGPL-3',
-    'depends': ['accountant', 'product'],
+    'depends': ['account', 'product'],
     'category': 'Accounting',
     'summary': 'Modulo de facturas electronicas',
     'installable': True,
