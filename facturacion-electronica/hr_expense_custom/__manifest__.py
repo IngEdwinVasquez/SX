@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Expense Account Custom',
+    'name': 'Expense Account ECF',
     'version': '17.0.1.0.0',
     'license': 'LGPL-3',
     'depends': ['hr_expense'],
