@@ -7,8 +7,6 @@
     'summary': 'Modulo de facturas electronicas',
     'installable': True,
     'application': False,
-
-  
     'data': [
         'security/ir.model.access.csv',
 
