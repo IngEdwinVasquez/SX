@@ -1,6 +1,6 @@
 {
     "name": "Portal ECF",
-    "version": "18.0.1.0",
+    "version": "17.0.1",
     "summary": "Portal ECF integrado mediante iframe",
     "description": "Agrega un menú 'Portal ECF' que muestra el portal ECF dentro de Odoo en un iframe.",
     "author": "Gleny Lugo",
